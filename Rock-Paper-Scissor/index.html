@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <link rel = "stylesheet" href = "./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <script src = "./javascript.js"></script>
+</head>
+<body>
+    <div class = "wrapper">
+        <div class = "scoreboard">
+            <div class = "title">
+                <img src = "title.png" class = "logo">
+            </div>
+            <div class = "score">
+                <p>SCORE</p>
+                <p class = "js-score">Wins: 0, Losses: 0, Ties: 0.</p>
+                <button class = "reset-button"onclick = "
+                score.wins = 0;
+                score.losses = 0;
+                score.ties = 0;
+                localStorage.removeItem('score');
+                updatescoreElement();
+                ">Reset score</button>
+            </div>
+        </div>
+        <div class="hands">
+            <div class="hand paper">
+                <img src="Paper.png" onclick="pickUserhand('paper');">
+            </div>
+            <div class="hand rock">
+                <img src="Rock.png" onclick="pickUserhand('rock');">
+            </div>
+            <div class="hand scissors">
+                <img src="Scissors.png" onclick="pickUserhand('scissors');">
+            </div>
+        </div>
+        <div class = "contest">
+            <div class = "userhand">
+                <h1>YOU PICKED</h1>
+                    <div class = "handImageContainer">
+                        <img id = "userPickImage" src = "Paper.png">
+                    </div>
+            </div>
+            
+            <div class="referee"> 
+                <div class="decision"><h1 class = "js-result"></h1></div>
+                <button class = "newGame" onclick="restartGame()">PLAY AGAIN</button>
+            </div>
+            <div class="computerhand">
+                <h1>THE HOUSE PICKED</h1>
+                <div class="handImageContainer">
+                  <img id="computerPickImage" src='Paper.png' /> 
+                </div>   
+            </div>       
+          </div>    
+     </div>
+</body>
+</html>
